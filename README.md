@@ -1,1 +1,1 @@
-# -python_labs_km13_chernenko
+# python_labs_km13_chernenko
