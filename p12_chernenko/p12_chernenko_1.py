@@ -31,8 +31,6 @@ def flat(S):
 
 def search(dirs, filename, string="", fold = ""): 
     arr = []
-    if filename == dirs[0][0]:
-        return []
     for i in range(len(dirs)):
         repos = string
         if type(dirs[i]) == tuple:
@@ -44,16 +42,16 @@ def search(dirs, filename, string="", fold = ""):
             if filename != fold:
                 arr.append(string+"/"+dirs[i])
             else:
-                arr.append(string)
+                string_last = string[8:]
+                if string_last == '':
+                    string_last = []
+                arr.append(string_last)
         string = repos
     return flat(arr)
 
 
 # ПЕРЕВІРКА
 
-print(search(dirs, 'folder1'))
-print(search(dirs, 'folder2'))
-print(search(dirs, 'folder4'))
 print(search(dirs, 'file1'))
 print(search(dirs, 'file2'))
 print(search(dirs, 'file3'))
@@ -70,7 +68,6 @@ assert search(dirs, 'file5') == ['/folder1/file5'], 'Failed test for file5'
 assert search(dirs, 'file6') == [], 'Failed test for file6'
 assert search(dirs, 'folder1') == [], 'Failed test for folder1'
 print('All tests good!')
-
 
 
 
