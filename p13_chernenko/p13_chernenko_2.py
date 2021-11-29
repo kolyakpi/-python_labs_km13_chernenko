@@ -1,4 +1,5 @@
 import os
+
 #В мене з цим шляхом працювало...
 #directory = os.fsencode('/home/kolya/Desktop/Studying/pythonHomeworks/p12_chernenko/archive')
 #З цим не впевнений бо не первіряв
@@ -12,32 +13,29 @@ for file in os.listdir(directory):
         #filenames.append(('/home/kolya/Desktop/Studying/pythonHomeworks/p12_chernenko/archive/{0}'.format(filename)))
         #З цим не впевнений бо не первіряв
         filenames.append(('/archive/{0}'.format(filename)))
-
+        
 man_global_name=["Michael"]
 man_global_count=[1]
-
 woman_global_name=["Lisa"]
 woman_global_count=[1]
 
-count12 = 0
+count = 1
 for file in filenames:
+    print(count)
+    count+=1
     f = open(file, 'r')
     
-    man_local_name = []
-    woman_local_name = []
-    
+    woman_local_name = ""
     line1 = f.readline()
-    
     stringw=''
     for i in line1:
         if i != ",":
             stringw += i
         else:
             break
-    print("stringq", stringw)
-    if stringw == "Lisa":
-        count12+=1
-    woman_local_name.append(stringw)
+    woman_local_name = stringw
+    
+    man_local_name = ""
     
     for line in f:
             
@@ -49,28 +47,26 @@ for file in filenames:
                     string += i
                 else:
                     if counter == 0:
-                        man_local_name.append(string)
+                        man_local_name = string
                         counter += 1
-                        string = ""
-                    elif counter == 1:
-                        string=''
-                        counter += 1
-                    if counter == 2:
-                        string=""
-            break           
-    
-    if man_local_name[0] in man_global_name:
-        ind = man_global_name.index(man_local_name[0])
+                        string = "" 
+            break        
+        
+    print("man:", man_local_name)
+    print("woman: ", woman_local_name)
+
+    if man_local_name in man_global_name:
+        ind = man_global_name.index(man_local_name)
         man_global_count[ind] += 1
     else:
-        man_global_name.append(man_local_name[0])
+        man_global_name.append(man_local_name)
         man_global_count.append(1)
         
-    if woman_local_name[0] in woman_global_name:
-        ind = woman_global_name.index(woman_local_name[0])
+    if woman_local_name in woman_global_name:
+        ind = woman_global_name.index(woman_local_name)
         woman_global_count[ind] += 1
     else:
-        woman_global_name.append(woman_local_name[0])
+        woman_global_name.append(woman_local_name)
         woman_global_count.append(1)
 
 mistake = 1
@@ -110,35 +106,6 @@ for i in reversed(range(len(man_global_count))):
 print("")    
 for i in reversed(range(len(woman_global_count))):
     print(woman_global_name[i] , ": ", woman_global_count[i])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
