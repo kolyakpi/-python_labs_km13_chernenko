@@ -1,13 +1,17 @@
 import os
-
-directory = os.fsencode('/home/kolya/Desktop/Studying/pythonHomeworks/p12_chernenko/archive')
-
+#В мене з цим шляхом працювало...
+#directory = os.fsencode('/home/kolya/Desktop/Studying/pythonHomeworks/p12_chernenko/archive')
+#З цим не впевнений бо не первіряв
+directory = os.fsencode('/archive')
 filenames = []
 
 for file in os.listdir(directory):
     filename = os.fsdecode(file)
     if filename.endswith(".txt"):
-        filenames.append(('/home/kolya/Desktop/Studying/pythonHomeworks/p12_chernenko/archive/{0}'.format(filename)))
+        #В мене з цим шляхом працювало...
+        #filenames.append(('/home/kolya/Desktop/Studying/pythonHomeworks/p12_chernenko/archive/{0}'.format(filename)))
+        #З цим не впевнений бо не первіряв
+        filenames.append(('/archive/{0}'.format(filename)))
 
 man_global_name=["Michael"]
 man_global_count=[1]
