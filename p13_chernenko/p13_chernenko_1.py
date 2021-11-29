@@ -1,5 +1,7 @@
-f = open('/home/kolya/Desktop/Studying/pythonHomeworks/p12_chernenko/gadsby.txt', 'r')
-
+#f = open('/home/kolya/Desktop/Studying/pythonHomeworks/p12_chernenko/gadsby.txt', 'r')
+#З тим директорієм що вище в мене на наотбуці працювало
+#з цим що нижче який я Вам встановлю не впвенеий що запрацює....
+f = open('gadsby.txt', 'r')
 dict = ["a", "b", "c", "d","e","f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r","s", "t", "u", "v","w", "x", "y", "z"]
 numb1 = []
 for i in range(len(dict)):
