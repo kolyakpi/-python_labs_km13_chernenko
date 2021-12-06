@@ -1,7 +1,7 @@
 import json
 #image_info_test-dev2017.json
 #/home/kolya/Desktop/Studying/pythonHomeworks/p14_chernenko/image_info_test-dev2017.json
-with open('/home/kolya/Desktop/Studying/pythonHomeworks/p14_chernenko/image_info_test-dev2017.json') as f:
+with open('image_info_test-dev2017.json') as f:
     data = json.load(f)
     f.close()
 
